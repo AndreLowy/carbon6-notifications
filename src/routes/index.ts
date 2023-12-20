@@ -25,5 +25,6 @@ export const createRouter = ({
     });
 
     router.get("/notifications", notificationsController.get);
+    router.post("/notification", notificationsController.post);
     return router;
 };

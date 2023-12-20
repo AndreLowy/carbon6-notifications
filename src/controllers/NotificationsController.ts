@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { NotificationsService } from "../services/notificationsService";
+import { NotificationsService } from "../services/NotificationsService";
 import { Logger } from "pino";
 
 export class NotificationsController {
@@ -26,6 +26,7 @@ export class NotificationsController {
     };
 
     public post = async (req: Request, res: Response): Promise<void> => {
+        if (!req.body) res.send({ message: "Bad Request" }).status(400);
         const body = req.body as {
             user_id: string;
             category: string;
